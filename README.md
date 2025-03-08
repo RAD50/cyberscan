@@ -28,7 +28,7 @@ testing. It helps identify active hosts, open ports, and running services to unc
 
 Requirements: Python 3.6+
 
-```
+``` bash
 git clone https://github.com/yourusername/CyberScan.git
 cd CyberScan
 chmod +x cyberscan.py  # Make executable (optional)
@@ -36,7 +36,7 @@ chmod +x cyberscan.py  # Make executable (optional)
 
  🚀 Basic Usage
 
-```bash
+```
 # Scan single host
 python cyberscan.py -i 192.168.1.1
 
