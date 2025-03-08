@@ -29,7 +29,7 @@ testing. It helps identify active hosts, open ports, and running services to unc
 Requirements: Python 3.6+
 
 
-git clone https://github.com/yourusername/CyberScan.git
+git clone https://github.com/RAD50/cyberscan.git
 cd CyberScan
 chmod +x cyberscan.py  # Make executable (optional)
 ````
