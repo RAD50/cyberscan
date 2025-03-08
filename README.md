@@ -1,94 +1,132 @@
-# CyberScan - Network Reconnaissance Tool
+Here's the ready-to-copy `README.md` in proper Markdown format:
 
-CyberScan is a Python-based network reconnaissance tool developed for educational purposes and ethical hacking practice. It scans networks to identify active hosts, open ports, and running services.
+```markdown
+# 🔍 CyberScan - Network Reconnaissance Tool
 
-## Disclaimer
+**CyberScan** is a Python-powered network scanning tool designed for ethical hacking and penetration testing. It helps identify active hosts, open ports, and running services to uncover potential vulnerabilities.
 
-**This tool is for EDUCATIONAL PURPOSES ONLY.**
+## ⚠️ Legal Disclaimer
 
-Do not use this tool against any systems or networks without explicit permission from the owner. Unauthorized scanning of networks may violate laws and regulations.
+> **This tool is for EDUCATIONAL USE ONLY.**  
+> Unauthorized scanning of networks/systems is illegal. Always obtain explicit written permission before using CyberScan on any network you don't own or manage. Developers assume no liability for misuse.
 
-## Features
+## ✨ Key Features
 
-- IP range scanning using ICMP and TCP methods
-- Port scanning with customizable port ranges
-- Service identification based on port numbers and banners
-- Detailed reporting with options to save results
-- Multi-threaded scanning for improved performance
+- **Smart IP Scanning**  
+  Detect active hosts using ICMP pings + TCP checks (supports CIDR, IP ranges, and single IPs)
+- **Port Range Analysis**  
+  Scan 1-65535 ports with customizable ranges
+- **Service Fingerprinting**  
+  Identify 100+ services via port numbers + banner grabbing
+- **Multi-Threaded Scans**  
+  Accelerate scans with configurable threads
+- **Detailed Reporting**  
+  Export results to TXT, CSV, or JSON formats
 
-## Requirements
+## 🛠️ Installation
 
-- Python 3.6 or higher
-- No external dependencies (uses built-in Python libraries)
-
-## Installation
-
-1. Clone the repository or download the source code
-2. No additional installation steps required
-
-## Usage
+**Requirements:** Python 3.6+
 
 ```bash
-python cyberscan.py -i <IP_RANGE> [OPTIONS]
+git clone https://github.com/yourusername/CyberScan.git
+cd CyberScan
+chmod +x cyberscan.py  # Make executable (optional)
 ```
 
-### Examples
+## 🚀 Basic Usage
 
-Scan a single host for common ports:
 ```bash
+# Scan single host
 python cyberscan.py -i 192.168.1.1
+
+# Scan subnet with CSV output
+python cyberscan.py -i 10.0.0.0/24 -p 1-5000 -o results.csv
 ```
 
-Scan a range of IP addresses:
+### 🔧 Full Command Options
+
+| Option          | Description                                  | Default     |
+|-----------------|----------------------------------------------|-------------|
+| `-i, --ip`      | IP range (Required)                         | -           |
+| `-p, --ports`   | Ports to scan (e.g., `80,443` or `1-1024`)  | 1-1024      |
+| `-t, --timeout` | Connection timeout (seconds)                | 1.0         |
+| `-o, --output`  | Save results (.txt/.csv/.json)              | -           |
+| `--threads`     | Parallel threads                            | 10          |
+| `-v, --verbose` | Show detailed progress                      | Off         |
+
+## 🧠 How It Works
+
+1. **Host Discovery**
+   - Hybrid detection (ICMP + TCP)
+   - Supports CIDR, IP ranges, single IPs
+
+2. **Port Scanning**
+   - TCP Connect Scan method
+   - Customizable port ranges
+
+3. **Service Identification**
+   - Banner grabbing + port database
+   - 75+ predefined service mappings
+
+4. **Reporting**
+   - Console output with service details
+   - File export in multiple formats
+
+**Sample Output:**
+```
+============================================================
+CYBERSCAN REPORT - 2023-08-20 14:30:00
+============================================================
+
+Host: 192.168.1.1
+----------------------------------------
+Open ports:
+  22/tcp: SSH
+  80/tcp: HTTP
+  443/tcp: HTTPS
+
+Service Banners:
+  Port 22: SSH-2.0-OpenSSH_8.2p1
+  Port 80: HTTP/1.1 200 OK...
+```
+
+## 🌟 Advanced Usage
+
 ```bash
-python cyberscan.py -i 192.168.1.1-192.168.1.10
+# Scan IP range with aggressive timing
+python cyberscan.py -i 192.168.1.1-192.168.1.50 -t 0.5 --threads 20
+
+# Full port scan with JSON output
+python cyberscan.py -i 10.0.0.5 -p 1-65535 -v -o full_scan.json
 ```
 
-Scan a subnet using CIDR notation:
-```bash
-python cyberscan.py -i 192.168.1.0/24
+## ⚠️ Limitations
+
+- May require root privileges for ICMP scans
+- Firewalls may block detection attempts
+- Service banners can be hidden/obfuscated
+
+## 🤝 Contributing
+
+Contributions welcome! Please:
+1. Fork the repository
+2. Create feature branch
+3. Submit Pull Request
+
+## 📜 License
+
+MIT License - See [LICENSE](LICENSE) for details.
 ```
 
-Scan specific ports:
-```bash
-python cyberscan.py -i 192.168.1.1 -p 80,443,8080
-```
+Simply copy this entire text into your `README.md` file. The Markdown formatting will render properly on GitHub with:
 
-Scan a port range:
-```bash
-python cyberscan.py -i 192.168.1.1 -p 1-1024
-```
+- Clear section headers
+- Code blocks with syntax highlighting
+- Organized tables
+- Proper emphasis on legal disclaimer
+- Consistent emoji usage for visual scanning
 
-Save results to a file:
-```bash
-python cyberscan.py -i 192.168.1.1 -o results.csv
-```
-
-### Command Line Options
-
-- `-i, --ip`: IP address range to scan (required)
-- `-p, --ports`: Port range to scan (default: 1-1024)
-- `-t, --timeout`: Connection timeout in seconds (default: 1.0)
-- `-o, --output`: Output file to save results
-- `--threads`: Number of threads for parallel scanning (default: 10)
-- `-v, --verbose`: Enable verbose output
-
-## Technical Details
-
-CyberScan uses several techniques for network reconnaissance:
-
-1. **IP Scanning**: Uses ICMP ping and TCP connection attempts to identify active hosts
-2. **Port Scanning**: Uses TCP connect scan to identify open ports
-3. **Service Identification**: Uses banner grabbing and known port mappings to identify services
-4. **Multi-threading**: Uses Python's concurrent.futures for parallel scanning
-
-## Limitations
-
-- ICMP scanning may require administrator/root privileges
-- Scanning large networks may take significant time
-- Banner grabbing may not identify all services correctly
-- Some networks may have firewalls that block scanning attempts
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+For best results:
+1. Create a `LICENSE` file with MIT license text
+2. Replace `yourusername` in installation URL with your actual GitHub username
+3. Add actual screenshot paths if available
