@@ -3,29 +3,29 @@ Here's the ready-to-copy `README.md` in proper Markdown format:
 ```markdown
 # 🔍 CyberScan - Network Reconnaissance Tool
 
-**CyberScan** is a Python-powered network scanning tool designed for ethical hacking and penetration testing. It helps identify active hosts, open ports, and running services to uncover potential vulnerabilities.
+CyberScan is a Python-powered network scanning tool designed for ethical hacking and penetration testing. It helps identify active hosts, open ports, and running services to uncover potential vulnerabilities.
 
-## ⚠️ Legal Disclaimer
+# ⚠️ Legal Disclaimer
 
-> **This tool is for EDUCATIONAL USE ONLY.**  
+> This tool is for EDUCATIONAL USE ONLY.  
 > Unauthorized scanning of networks/systems is illegal. Always obtain explicit written permission before using CyberScan on any network you don't own or manage. Developers assume no liability for misuse.
 
-## ✨ Key Features
+# ✨ Key Features
 
-- **Smart IP Scanning**  
+- Smart IP Scanning  
   Detect active hosts using ICMP pings + TCP checks (supports CIDR, IP ranges, and single IPs)
-- **Port Range Analysis**  
+- Port Range Analysis  
   Scan 1-65535 ports with customizable ranges
-- **Service Fingerprinting**  
+- Service Fingerprinting  
   Identify 100+ services via port numbers + banner grabbing
-- **Multi-Threaded Scans**  
+- Multi-Threaded Scans  
   Accelerate scans with configurable threads
-- **Detailed Reporting**  
+- Detailed Reporting  
   Export results to TXT, CSV, or JSON formats
 
-## 🛠️ Installation
+# 🛠️ Installation
 
-**Requirements:** Python 3.6+
+Requirements: Python 3.6+
 
 ```bash
 git clone https://github.com/yourusername/CyberScan.git
@@ -33,7 +33,7 @@ cd CyberScan
 chmod +x cyberscan.py  # Make executable (optional)
 ```
 
-## 🚀 Basic Usage
+ 🚀 Basic Usage
 
 ```bash
 # Scan single host
@@ -43,7 +43,7 @@ python cyberscan.py -i 192.168.1.1
 python cyberscan.py -i 10.0.0.0/24 -p 1-5000 -o results.csv
 ```
 
-### 🔧 Full Command Options
+# 🔧 Full Command Options
 
 | Option          | Description                                  | Default     |
 |-----------------|----------------------------------------------|-------------|
@@ -54,25 +54,25 @@ python cyberscan.py -i 10.0.0.0/24 -p 1-5000 -o results.csv
 | `--threads`     | Parallel threads                            | 10          |
 | `-v, --verbose` | Show detailed progress                      | Off         |
 
-## 🧠 How It Works
+ 🧠 How It Works
 
-1. **Host Discovery**
+1. Host Discovery
    - Hybrid detection (ICMP + TCP)
    - Supports CIDR, IP ranges, single IPs
 
-2. **Port Scanning**
+2. Port Scanning
    - TCP Connect Scan method
    - Customizable port ranges
 
-3. **Service Identification**
+3. Service Identification
    - Banner grabbing + port database
    - 75+ predefined service mappings
 
-4. **Reporting**
+4. Reporting
    - Console output with service details
    - File export in multiple formats
 
-**Sample Output:**
+Sample Output:
 ```
 ============================================================
 CYBERSCAN REPORT - 2023-08-20 14:30:00
@@ -90,7 +90,7 @@ Service Banners:
   Port 80: HTTP/1.1 200 OK...
 ```
 
-## 🌟 Advanced Usage
+ 🌟 Advanced Usage
 
 ```bash
 # Scan IP range with aggressive timing
@@ -100,20 +100,20 @@ python cyberscan.py -i 192.168.1.1-192.168.1.50 -t 0.5 --threads 20
 python cyberscan.py -i 10.0.0.5 -p 1-65535 -v -o full_scan.json
 ```
 
-## ⚠️ Limitations
+ ⚠️ Limitations
 
 - May require root privileges for ICMP scans
 - Firewalls may block detection attempts
 - Service banners can be hidden/obfuscated
 
-## 🤝 Contributing
+ 🤝 Contributing
 
 Contributions welcome! Please:
 1. Fork the repository
 2. Create feature branch
 3. Submit Pull Request
 
-## 📜 License
+ 📜 License
 
 MIT License - See [LICENSE](LICENSE) for details.
 ```
