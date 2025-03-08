@@ -1,14 +1,15 @@
-Here's the ready-to-copy `README.md` in proper Markdown format:
 
 ```markdown
 # 🔍 CyberScan - Network Reconnaissance Tool
 
-CyberScan is a Python-powered network scanning tool designed for ethical hacking and penetration testing. It helps identify active hosts, open ports, and running services to uncover potential vulnerabilities.
+CyberScan is a Python-powered network scanning tool designed for ethical hacking and penetration
+testing. It helps identify active hosts, open ports, and running services to uncover potential vulnerabilities.
 
 # ⚠️ Legal Disclaimer
 
 > This tool is for EDUCATIONAL USE ONLY.  
-> Unauthorized scanning of networks/systems is illegal. Always obtain explicit written permission before using CyberScan on any network you don't own or manage. Developers assume no liability for misuse.
+> Unauthorized scanning of networks/systems is illegal. Always obtain explicit written permission
+ before using CyberScan on any network you don't own or manage. Developers assume no liability for misuse.
 
 # ✨ Key Features
 
@@ -117,16 +118,3 @@ Contributions welcome! Please:
 
 MIT License - See [LICENSE](LICENSE) for details.
 ```
-
-Simply copy this entire text into your `README.md` file. The Markdown formatting will render properly on GitHub with:
-
-- Clear section headers
-- Code blocks with syntax highlighting
-- Organized tables
-- Proper emphasis on legal disclaimer
-- Consistent emoji usage for visual scanning
-
-For best results:
-1. Create a `LICENSE` file with MIT license text
-2. Replace `yourusername` in installation URL with your actual GitHub username
-3. Add actual screenshot paths if available
