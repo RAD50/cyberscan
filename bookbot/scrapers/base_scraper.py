@@ -34,9 +34,19 @@ class BaseScraper(abc.ABC):
     def __init__(self, store_name: str, base_url: str):
         self.store_name = store_name
         self.base_url = base_url
-        self.timeout = int(os.environ.get("REQUEST_TIMEOUT", "15"))
-        self.max_results = int(os.environ.get("MAX_RESULTS_PER_SITE", "3"))
         self.max_retries = 2
+
+        try:
+            self.timeout = int(os.environ.get("REQUEST_TIMEOUT", "15"))
+        except ValueError:
+            logger.warning("Invalid REQUEST_TIMEOUT value, using default 15.")
+            self.timeout = 15
+
+        try:
+            self.max_results = int(os.environ.get("MAX_RESULTS_PER_SITE", "3"))
+        except ValueError:
+            logger.warning("Invalid MAX_RESULTS_PER_SITE value, using default 3.")
+            self.max_results = 3
 
     async def _fetch(self, url: str) -> Optional[BeautifulSoup]:
         """

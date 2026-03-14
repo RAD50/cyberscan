@@ -43,8 +43,12 @@ async def _search_all_stores(query: str) -> dict[str, list[dict]]:
     return results_by_store
 
 
-async def _safe_search(scraper, query: str) -> list[dict]:
-    """Safely run a scraper search, catching all exceptions."""
+async def _safe_search(scraper, query: str) -> list[dict] | None:
+    """
+    Safely run a scraper search, catching all exceptions.
+    Returns None if the scraper failed entirely (store unavailable),
+    or an empty list if no results were found.
+    """
     try:
         return await scraper.search(query)
     except Exception as e:
@@ -53,7 +57,7 @@ async def _safe_search(scraper, query: str) -> list[dict]:
             scraper.store_name, query, e,
             exc_info=True,
         )
-        return []
+        return None
 
 
 @restricted

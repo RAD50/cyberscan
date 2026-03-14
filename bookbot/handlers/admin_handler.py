@@ -57,7 +57,8 @@ async def adduser_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     allowed = _get_allowed_user_ids()
     if new_user_id not in allowed:
         allowed.append(new_user_id)
-        os.environ["ALLOWED_USER_IDS"] = ",".join(str(uid) for uid in allowed)
+    # Always update the env var to ensure consistency
+    os.environ["ALLOWED_USER_IDS"] = ",".join(str(uid) for uid in allowed)
 
     await update.message.reply_text(
         get_message("user_added", lang, user_id=new_user_id)

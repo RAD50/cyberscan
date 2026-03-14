@@ -112,6 +112,7 @@ def admin_only(func):
     """
     Decorator that restricts handler access to admin users only.
     Non-admins are silently ignored.
+    Only logs as unauthorized if the user is also not in the general whitelist.
     """
     @functools.wraps(func)
     async def wrapper(update, context, *args, **kwargs):
@@ -120,7 +121,9 @@ def admin_only(func):
             return
 
         if not is_user_admin(user.id):
-            _log_unauthorized_access(update)
+            # Only log as unauthorized if user is not even in the whitelist
+            if not is_user_allowed(user.id):
+                _log_unauthorized_access(update)
             return
 
         return await func(update, context, *args, **kwargs)

@@ -9,6 +9,13 @@ import os
 import sys
 from logging.handlers import RotatingFileHandler
 
+# Ensure the parent directory of bookbot/ is on sys.path so that
+# 'bookbot' can be imported as a package with relative imports.
+_script_dir = os.path.dirname(os.path.abspath(__file__))
+_parent_dir = os.path.dirname(_script_dir)
+if _parent_dir not in sys.path:
+    sys.path.insert(0, _parent_dir)
+
 from dotenv import load_dotenv
 from telegram.ext import (
     ApplicationBuilder,
@@ -18,8 +25,8 @@ from telegram.ext import (
     filters,
 )
 
-# Load environment variables from .env file
-load_dotenv()
+# Load environment variables from .env file (look in the script's directory)
+load_dotenv(os.path.join(_script_dir, ".env"))
 
 
 def setup_logging() -> None:
@@ -81,15 +88,15 @@ def main() -> None:
     logger.info("Starting Omani Book Bot...")
 
     # Import handlers after logging is configured
-    from handlers.start_handler import start_command, language_callback
-    from handlers.help_handler import help_command
-    from handlers.search_handler import (
+    from bookbot.handlers.start_handler import start_command, language_callback
+    from bookbot.handlers.help_handler import help_command
+    from bookbot.handlers.search_handler import (
         search_command,
         text_search_handler,
         search_again_callback,
     )
-    from handlers.language_handler import language_command
-    from handlers.admin_handler import (
+    from bookbot.handlers.language_handler import language_command
+    from bookbot.handlers.admin_handler import (
         whitelist_command,
         adduser_command,
         removeuser_command,
