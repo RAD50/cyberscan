@@ -1,0 +1,6 @@
+python-telegram-bot==20.7
+httpx>=0.25.2,<0.28.0
+beautifulsoup4==4.12.3
+lxml==5.1.0
+python-dotenv==1.0.1
+aiofiles==23.2.1

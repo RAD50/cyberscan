@@ -1,0 +1,9 @@
+services:
+  bookbot:
+    build: .
+    container_name: omani_bookbot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs

@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+
+# Environment variables
+.env
+
+# Logs (mounted volume in Docker, should not be committed)
+bookbot/logs/*.log
+bookbot/logs/*.log.*
+
+# User data (persisted preferences)
+bookbot/user_languages.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
